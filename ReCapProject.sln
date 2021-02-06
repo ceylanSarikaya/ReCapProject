@@ -9,7 +9,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DataAccess", "DataAcess\Dat
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Business", "Business\Business.csproj", "{A88FDE3D-CCA1-4ECC-B86B-481B6F09402B}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UICar", "UICar\UICar.csproj", "{DAC1AE3F-2E84-4706-9CC3-FAB50E6CC286}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ConsolUI", "UICar\ConsolUI.csproj", "{DAC1AE3F-2E84-4706-9CC3-FAB50E6CC286}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
