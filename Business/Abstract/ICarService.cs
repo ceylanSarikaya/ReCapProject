@@ -11,3 +11,4 @@ namespace Business.Abstract
         List<Car> GetAllColorId(int id);
     }
 }
+

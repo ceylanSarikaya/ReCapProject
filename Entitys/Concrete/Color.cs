@@ -12,3 +12,7 @@ namespace Entitys.Concrete
 
     }
 }
+
+
+
+

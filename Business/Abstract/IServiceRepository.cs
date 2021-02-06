@@ -13,3 +13,4 @@ namespace Business.Abstract
         void Delete(T entity);
     }
 }
+

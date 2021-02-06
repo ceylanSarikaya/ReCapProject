@@ -22,6 +22,7 @@ namespace DataAccess.Concrete.EntityFramwork
             }
         }
 
+
         public void Delete(Car entity)
         {
             using (CarDatabaseContext context = new CarDatabaseContext())

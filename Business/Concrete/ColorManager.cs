@@ -13,6 +13,8 @@ namespace Business.Concrete
             _colorDal = colorDal;
         }
 
+
+
         public void Add(Color entity)
         {
             _colorDal.Add(entity);

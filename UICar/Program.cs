@@ -17,6 +17,7 @@ namespace UICar
 
 
 
+
             //Car car1= new Car {BrandId = 1, ColorId = 1, ModelYear = "2008", DailyPrice = 123000};
             //Car car2 = new Car {BrandId = 2, ColorId = 2, ModelYear = "2020", DailyPrice = 260000};
 

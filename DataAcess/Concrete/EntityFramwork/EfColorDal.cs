@@ -19,6 +19,7 @@ namespace DataAccess.Concrete.EntityFramwork
                 addedEntity.State = EntityState.Added;
                 context.SaveChanges();
             }
+
         }
 
         public void Delete(Color entity)

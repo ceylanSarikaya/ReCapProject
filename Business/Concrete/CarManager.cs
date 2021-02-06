@@ -15,10 +15,23 @@ namespace Business.Concrete
             _carDal = carDal;
         }
 
+
         public void Add(Car car)
         {
-            _carDal.Add(car);
-            Console.WriteLine(" Ürün Ekleme İslemi Tamamlandı! {0}",car.Description);
+            if (car.BrandId>2)
+            {
+                _carDal.Add(car);
+                Console.WriteLine("Ürüm Markanız 2 Karekterden Uzun Olmalı!");
+             
+            }
+            else if (car.BrandId==0)
+            {
+                Console.WriteLine("Ürün Maka 0 olmamalı !");
+            }
+            else
+            {
+                Console.WriteLine(" Ürün Ekleme İslemi Tamamlandı! {0}", car.Description);
+            }
         }
 
         public void Delete(Car car)

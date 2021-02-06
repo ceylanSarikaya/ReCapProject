@@ -15,4 +15,8 @@ namespace Entitys.Concrete
         public string Description { get; set; }
 
     }
+
 }
+
+
+

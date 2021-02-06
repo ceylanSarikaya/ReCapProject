@@ -21,6 +21,7 @@ namespace DataAccess.Concrete.EntityFramwork
             }
         }
 
+
         public void Delete(Brand entity)
         {
             using (CarDatabaseContext context = new CarDatabaseContext())
