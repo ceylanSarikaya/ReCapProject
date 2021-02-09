@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using Entitys.Concrete;
+using Entities.Concrete;
 using System.Text;
 
 namespace Business.Abstract

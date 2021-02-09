@@ -1,7 +1,7 @@
 ﻿using Business.Abstract;
 using DataAccess.Abstract;
 using System.Collections.Generic;
-using Entitys.Concrete ;
+using Entities.Concrete ;
 
 namespace Business.Concrete
 {
@@ -12,8 +12,6 @@ namespace Business.Concrete
         {
             _colorDal = colorDal;
         }
-
-
 
         public void Add(Color entity)
         {

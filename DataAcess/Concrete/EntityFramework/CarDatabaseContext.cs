@@ -1,10 +1,10 @@
-﻿using Entitys.Concrete;
+﻿using Entities.Concrete;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace DataAccess.Concrete.EntityFramwork
+namespace DataAccess.Concrete.EntityFramework
 {
     public class CarDatabaseContext:DbContext
     {

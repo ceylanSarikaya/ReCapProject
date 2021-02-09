@@ -1,6 +1,7 @@
 ﻿using Business.Abstract;
 using DataAccess.Abstract;
-using Entitys.Concrete;
+using Entities.DTOs;
+using Entities.Concrete;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -18,19 +19,15 @@ namespace Business.Concrete
 
         public void Add(Car car)
         {
-            if (car.BrandId>2)
+            if (car.DailyPrice > 0)
             {
+                Console.WriteLine( " Ürün Başarı İle Eklendi ",car.CarId);
                 _carDal.Add(car);
-                Console.WriteLine("Ürüm Markanız 2 Karekterden Uzun Olmalı!");
-             
-            }
-            else if (car.BrandId==0)
-            {
-                Console.WriteLine("Ürün Maka 0 olmamalı !");
+
             }
             else
             {
-                Console.WriteLine(" Ürün Ekleme İslemi Tamamlandı! {0}", car.Description);
+                Console.WriteLine("Ürün Günlük Fiyatı  Sıfır Girilemez!");
             }
         }
 
@@ -63,6 +60,11 @@ namespace Business.Concrete
         public Car GetById(int id)
         {
             return _carDal.Get(c => c.CarId == id);
+        }
+
+        public List<CarDetailDto> GetCarDetailDtos()
+        {
+            return _carDal.GetCarDetailDtos();
         }
 
         public void Update(Car car)

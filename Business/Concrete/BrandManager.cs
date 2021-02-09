@@ -1,6 +1,6 @@
 ﻿using Business.Abstract;
 using DataAccess.Abstract;
-using Entitys.Concrete;
+using Entities.Concrete;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -17,7 +17,15 @@ namespace Business.Concrete
 
         public void Add(Brand entity)
         {
-            _brandDal.Add(entity);
+            if(entity.BrandName.Length>2)
+            {
+                Console.WriteLine(" Ürün başarı ile eklendi ", entity.BrandName);
+                _brandDal.Add(entity);
+            }
+            else
+            {
+                Console.WriteLine(" Ürün isimi iki karakterden uzun olmalı! ");
+            }
         }
 
         public void Delete(Brand entity)
@@ -40,7 +48,5 @@ namespace Business.Concrete
             _brandDal.Update(entity);
         }
     }
-
-        
  }
 
