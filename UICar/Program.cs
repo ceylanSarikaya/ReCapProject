@@ -53,11 +53,30 @@ namespace UICar
             //Veritabanına Araba Güncelleme İşlemleri
             //carManager.Update(new Car { CarId = 25, BrandId = 1, ColorId = 8, ModelYear = "2009", DailyPrice = 280, Description = "" });
 
-            //foreach (var car in carManager.GetCarDetailDtos())
-            //{
-            //    Console.WriteLine(car.BrandName + "-" + car.ColorName + "-" + car.DailyPrice);
-            //}
 
+            // DetailDtosDeneme(carManager);
+            //  cardeneme(carManager);
+
+            Console.WriteLine("------Araba Kiralama------");
+          
+
+
+        }
+
+        private static void cardeneme(CarManager carManager)
+        {
+            foreach (var car in carManager.GetAll())
+            {
+                Console.WriteLine(car.CarId + " - " + car.BrandId + " - " + car.ColorId + " - " + car.DailyPrice + " - " + car.Description);
+            }
+        }
+
+        private static void DetailDtosDeneme(CarManager carManager)
+        {
+            foreach (var car in carManager.GetCarDetailDtos())
+            {
+                Console.WriteLine(car.BrandName + "-" + car.ColorName + "-" + car.DailyPrice);
+            }
         }
     }
 }
