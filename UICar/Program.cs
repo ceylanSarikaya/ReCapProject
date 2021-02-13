@@ -21,45 +21,78 @@ namespace UICar
 
 
 
-            //Veritabanına Model Ekleme İşlemleri
-            //brandManager.Add(new Brand { BrandName = "Bmw" });
-            //brandManager.Add(new Brand { BrandName = "FIAT" });
-            //brandManager.Add(new Brand { BrandName = "Mercedes" });
+        //Veritabanına Model Ekleme İşlemleri
+        //brandManager.Add(new Brand { BrandName = "Bmw" });
+        //brandManager.Add(new Brand { BrandName = "FIAT" });
+        //brandManager.Add(new Brand { BrandName = "Mercedes" });
 
-            //Veritabanına Model Silme  İşlemleri
-            //brandManager.Delete(new Brand {BrandId = 4});
+        //Veritabanına Model Silme  İşlemleri
+        //brandManager.Delete(new Brand {BrandId = 4});
 
-            //Veritabanına Model Guncelleme  İşlemleri
-            //brandManager.Update(new Brand { BrandId = 2, BrandName = "FIAT" });
-
-
-            //Veritabanına Renk Ekleme İşlemleri
-            //colorManager.Add(new Color { ColorName = "Black" });
-            //colorManager.Add(new Color { ColorName = "Blue" });
-            //colorManager.Add(new Color { ColorName = "White" });
-            //colorManager.Add(new Color { ColorName = "Orange" });
-
-            //Veritabanına Renk Silme İşlemleri
-            //colorManager.Delete(new Color {ColorId = 2,ColorName = "Blue" });
-
-            ////Veritabanına Renk Güncelleme İşlemleri
-            //colorManager.Update(new Color { ColorId = 3, ColorName = "White" });
+        //Veritabanına Model Guncelleme  İşlemleri
+        //brandManager.Update(new Brand { BrandId = 2, BrandName = "FIAT" });
 
 
-            //Veritabanına Araba Ekleme İşlemleri
-            // carManager.Add(new Car {BrandId=1,ColorId=5,ModelYear="2008",DailyPrice=0 ,Description="" }); #Girilemez
-            //carManager.Add(new Car { BrandId = 1, ColorId = 5, ModelYear = "2008", DailyPrice = 380, Description = "" }); //#Ürün eklendi
-            //carManager.Add(new Car { BrandId = 1, ColorId = 5, ModelYear = "2018", DailyPrice = 500, Description = "" });
+        //Veritabanına Renk Ekleme İşlemleri
+        //colorManager.Add(new Color { ColorName = "Black" });
+        //colorManager.Add(new Color { ColorName = "Blue" });
+        //colorManager.Add(new Color { ColorName = "White" });
+        //colorManager.Add(new Color { ColorName = "Orange" });
 
-            //Veritabanına Araba Silme İşlemleri
-            //carManager.Delete(new Car { CarId = 24});
+        //Veritabanına Renk Silme İşlemleri
+        //colorManager.Delete(new Color {ColorId = 2,ColorName = "Blue" });
 
-            //Veritabanına Araba Güncelleme İşlemleri
-            //carManager.Update(new Car { CarId = 25, BrandId = 1, ColorId = 8, ModelYear = "2009", DailyPrice = 280, Description = "" });
+        //Veritabanına Renk Güncelleme İşlemleri
+        //colorManager.Update(new Color { ColorId = 3, ColorName = "White" });
 
-            //userManager.Delete(new User { UserId=7,FirstName = "Eren", LastName = "Sarıkaya", Email = "eren@gmail.com", Password = "1234567891 " });
-            // 
-            //  
+
+        //Veritabanına Araba Ekleme İşlemleri
+        // carManager.Add(new Car {BrandId=1,ColorId=5,ModelYear="2008",DailyPrice=0 ,Description="" }); #Girilemez
+        //carManager.Add(new Car { BrandId = 1, ColorId = 5, ModelYear = "2008", DailyPrice = 380, Description = "" }); //#Ürün eklendi
+        //carManager.Add(new Car { BrandId = 1, ColorId = 5, ModelYear = "2018", DailyPrice = 500, Description = "" });
+
+        //Veritabanına Araba Silme İşlemleri
+        //carManager.Delete(new Car { CarId = 24});
+
+        //Veritabanına Araba Güncelleme İşlemleri
+        //carManager.Update(new Car { CarId = 25, BrandId = 1, ColorId = 8, ModelYear = "2009", DailyPrice = 280, Description = "" });
+
+        //Kullanıcı Ekleme İşlemleri
+        //userManager.Add(new User { UserId=7,FirstName = "Eren", LastName = "Sarıkaya", Email = "eren@gmail.com", Password = "1234567891 " });
+
+        //Kullanıcı Silme İşlemleri
+        //userManager.Delete(new User { UserId = 7 });
+
+        //Kullanıcı Güncelleme İşlemleri
+        //userManager.Update(new User { UserId=6,FirstName = "EREN", LastName = "Sarıkaya", Email = "eren@gmail.com", Password = "1234567891 " }); 
+
+        // Kiralama Ekleme İşlemi
+        //rentalManager.Add(new Rental { CarId = 2, CustomerId = 4, RentalId = 02.10.2020 12:00:00, ReturnDate = 03.10.2020 18:00:00 });
+
+        // Kiralama Silme İşlemi
+        // rentalManager.Delete(new Rental { RentalId = 2 });
+
+        //Kiralama Güncelleme İşlemi
+        // rentalManager.Update(new Rental { RentalId = 2, CarId = 2, CustomerId = 4, RentalId = 02.10.2020 12:00:02, ReturnDate = 03.10.2020 20:00:07 });
+
+        //Müşteri Ekleme İşlemleri
+        //customerManager.Add(new Customer { UserId = 2, CompanyName = "%30" });
+
+        //Müşteri Silme İşlemleri
+        //customerManager.Delete(new Customer { CustomerId = 3 });
+
+        //Müşteri Güncellme İşlemleri
+        //customerManager.Update(new Customer { CustomerId = 2, UserId = 3, CompanyName = "%10" });
+
+
+
+
+
+
+
+
+
+
 
             Console.WriteLine("-------------------------Araba Kiralama------------------------------------");
             DetailDtosDeneme(carManager);
