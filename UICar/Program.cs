@@ -18,7 +18,7 @@ namespace UICar
             RentalManager rentalManager = new RentalManager(new EfRentalDal());
             CustomerManager customerManager = new CustomerManager(new EfCustomerDal());
             UserManager userManager = new UserManager(new EfUserDal());
-            
+
 
 
             //Veritabanına Model Ekleme İşlemleri
@@ -57,21 +57,79 @@ namespace UICar
             //Veritabanına Araba Güncelleme İşlemleri
             //carManager.Update(new Car { CarId = 25, BrandId = 1, ColorId = 8, ModelYear = "2009", DailyPrice = 280, Description = "" });
 
-
+            //userManager.Delete(new User { UserId=7,FirstName = "Eren", LastName = "Sarıkaya", Email = "eren@gmail.com", Password = "1234567891 " });
             // 
-            //  cardeneme(carManager);
+            //  
 
-            Console.WriteLine("------Araba Kiralama------");
+            Console.WriteLine("-------------------------Araba Kiralama------------------------------------");
             DetailDtosDeneme(carManager);
+            Console.WriteLine("-----------------Araba Bilgileri-----------------------------");
+            cardeneme(carManager);
+            Console.WriteLine("-----------------Kullanıcı------------------------------------");
+            KullanıcıBilgileri(userManager);
+            Console.WriteLine("-----------------Araba Kiralama Bilgisi------------------------");
+            ArabaKiralamaBilgisi(rentalManager);
+            Console.WriteLine("-----------------Müşteri Bilgisi------------------------");
+            Musteri(customerManager);
 
+        }
 
+        private static void Musteri(CustomerManager customerManager)
+        {
+            var result = customerManager.GetAll();
+            if (result.Success == true)
+            {
+                foreach (var customerdto in result.Data)
+
+                {
+                    Console.WriteLine(customerdto.CustomerId + " ==> " + customerdto.UserId + " ==> " + customerdto.CompanyName);
+                }
+            }
+            else
+            {
+                Console.WriteLine(result.Message);
+            }
+        }
+
+        private static void ArabaKiralamaBilgisi(RentalManager rentalManager)
+        {
+            var result = rentalManager.GetAll();
+            if (result.Success == true)
+            {
+                foreach (var rentaldto in result.Data)
+
+                {
+                    Console.WriteLine(rentaldto.RentalId + " ==> " + rentaldto.CarId + " ==> " + rentaldto.CustomerId + " ==> " + rentaldto.RentDate + " ==> " + rentaldto.ReturnDate);
+                }
+            }
+            else
+            {
+                Console.WriteLine(result.Message);
+            }
+        }
+
+        private static void KullanıcıBilgileri(UserManager userManager)
+        {
+            var result = userManager.GetAll();
+            if (result.Success == true)
+            {
+                foreach (var userdto in result.Data)
+
+                {
+                    Console.WriteLine(userdto.UserId + " ==>  " + userdto.FirstName + " ==> " + userdto.LastName + " ==> " + userdto.Email + " ==> " + userdto.Password);
+                }
+            }
+            else
+            {
+                Console.WriteLine(result.Message);
+            }
         }
 
         private static void cardeneme(CarManager carManager)
         {
             foreach (var car in carManager.GetAll().Data)
             {
-                Console.WriteLine(car.CarId + " - " + car.BrandId + " - " + car.ColorId + " - " + car.DailyPrice + " - " + car.Description);
+                Console.WriteLine(car.CarId + " ==> " + car.BrandId + " ==> " + car.ColorId + " ==> " + car.DailyPrice + " ==> " + car.Description);
             }
         }
 
