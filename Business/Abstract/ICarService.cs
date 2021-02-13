@@ -3,14 +3,20 @@ using Entities.Concrete;
 using System;
 using System.Collections.Generic;
 using System.Text;
+using Core.Utilities.Results;
 
 namespace Business.Abstract
 {
-    public interface ICarService : IServiceRepository<Car>
+    public interface ICarService
     {
-        List<Car> GetAllBrandId(int id);
-        List<Car> GetAllColorId(int id);
-        List<CarDetailDto> GetCarDetailDtos();
+        IDataResult<List<Car>>GetAllBrandId(int id);
+        IDataResult<List<Car>> GetAllColorId(int id);
+        IDataResult<List<CarDetailDto>> GetCarDetailDtos();
+        IDataResult<List<Car>> GetAll();
+        IDataResult<Car> GetById(int id);
+        IResult Add(Car car);
+        IResult Update(Car car);
+        IResult Delete(Car car);
     }
 }
 

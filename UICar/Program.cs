@@ -15,6 +15,10 @@ namespace UICar
             BrandManager brandManager = new BrandManager(new EfBrandDal());
             ColorManager colorManager = new ColorManager(new EfColorDal());
             CarManager carManager = new CarManager(new EfCarDal());
+            RentalManager rentalManager = new RentalManager(new EfRentalDal());
+            CustomerManager customerManager = new CustomerManager(new EfCustomerDal());
+            UserManager userManager = new UserManager(new EfUserDal());
+            
 
 
             //Veritabanına Model Ekleme İşlemleri
@@ -54,18 +58,18 @@ namespace UICar
             //carManager.Update(new Car { CarId = 25, BrandId = 1, ColorId = 8, ModelYear = "2009", DailyPrice = 280, Description = "" });
 
 
-            // DetailDtosDeneme(carManager);
+            // 
             //  cardeneme(carManager);
 
             Console.WriteLine("------Araba Kiralama------");
-          
+            DetailDtosDeneme(carManager);
 
 
         }
 
         private static void cardeneme(CarManager carManager)
         {
-            foreach (var car in carManager.GetAll())
+            foreach (var car in carManager.GetAll().Data)
             {
                 Console.WriteLine(car.CarId + " - " + car.BrandId + " - " + car.ColorId + " - " + car.DailyPrice + " - " + car.Description);
             }
@@ -73,9 +77,18 @@ namespace UICar
 
         private static void DetailDtosDeneme(CarManager carManager)
         {
-            foreach (var car in carManager.GetCarDetailDtos())
+            var result = carManager.GetCarDetailDtos();
+            if (result.Success==true)
             {
-                Console.WriteLine(car.BrandName + "-" + car.ColorName + "-" + car.DailyPrice);
+                foreach (var cardto in result.Data)
+
+                {
+                    Console.WriteLine(cardto.CarId + "  Numaralı  " + cardto.BrandName + "  Renkteki Aracın   " + cardto.ColorName + "  Günlük Fiyatı  " + cardto.DailyPrice);
+                }
+            }
+            else
+            {
+                Console.WriteLine(result.Message);  
             }
         }
     }

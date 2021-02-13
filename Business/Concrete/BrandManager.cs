@@ -1,4 +1,6 @@
 ﻿using Business.Abstract;
+using Business.Constants;
+using Core.Utilities.Results;
 using DataAccess.Abstract;
 using Entities.Concrete;
 using System;
@@ -15,37 +17,37 @@ namespace Business.Concrete
             _brandDal = brandDal;
         }
 
-        public void Add(Brand entity)
+        public IResult Add(Brand band)
         {
-            if(entity.BrandName.Length>2)
+            if (band.BrandName.Length<2)
             {
-                Console.WriteLine(" Ürün başarı ile eklendi ", entity.BrandName);
-                _brandDal.Add(entity);
+                return new ErrorResult(Messages.BrandNameInvalid);
             }
-            else
-            {
-                Console.WriteLine(" Ürün isimi iki karakterden uzun olmalı! ");
-            }
+            _brandDal.Add(band);
+            return new SuccessResult(Messages.BrandAdded);
         }
 
-        public void Delete(Brand entity)
+        public IResult Delete(Brand band)
         {
-            _brandDal.Delete(entity);
+            _brandDal.Delete(band);
+            return new SuccessResult(Messages.BrnadDeleted);
         }
 
-        public List<Brand> GetAll()
+        public IDataResult<List<Brand>> GetAll()
         {
-            return _brandDal.GetAll();
+
+            return new SuccessDataResult<List<Brand>>(_brandDal.GetAll(), Messages.BrandsListed);
         }
 
-        public Brand GetById(int id)
+        public IDataResult<Brand> GetById(int id)
         {
-            return _brandDal.Get(c => c.BrandId == id);
+            return new SuccessDataResult<Brand>(_brandDal.Get(u => u.BrandId == id), Messages.BrandsListed);
         }
 
-        public void Update(Brand entity)
+        public IResult Update(Brand band)
         {
-            _brandDal.Update(entity);
+            _brandDal.Delete(band);
+            return new SuccessResult(Messages.BrandUpdated);
         }
     }
  }
