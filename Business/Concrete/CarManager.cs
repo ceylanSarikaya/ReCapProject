@@ -9,6 +9,7 @@ using Core.Utilities.Results;
 using Business.Constants;
 using Core.CrossCuttingConcerns.Validation;
 using Business.ValidationRules.FluentValidation;
+using Core.Aspects.Autofac.Validation;
 
 namespace Business.Concrete
 {
@@ -20,14 +21,11 @@ namespace Business.Concrete
             _carDal = carDal;
         }
 
-
+        [ValidationAspect(typeof(CarValidator))]
         public IResult Add(Car car)
         {
-            ValidationTool.Validate(new CarValidator(), car);
             _carDal.Add(car);
-
             return new SuccessResult(Messages.CarAdded);
-
         }
 
         public IResult Delete(Car car)

@@ -20,7 +20,12 @@ namespace Business.ValidationRules.FluentValidation
 
         private bool StartsWith(string arg)
         {
+            //foreach (var item in arg)
+            //{
+                
+            //}
             return arg.StartsWith("@");
+
         }
     }
 }
