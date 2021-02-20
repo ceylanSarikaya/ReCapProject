@@ -38,17 +38,22 @@ namespace Business.Constants
 
         // USER
         public static string UserAdded = "Kullanıcı Eklendi.";
-        public static string UserNameInvalid = "Kullanıcı Password Geçersiz.";
         public static string UsersListed = "Kullanıcılar Listelendi.";
         public static string UserDeleted = "Kullanıcı Silindi.";
         public static string UserUpdate = "Kullanıcı Güncellendi";
-      
+        public static string UserPassword = "Kullanıcı Şifresi En Az 8 Krakter Olmalı";
+        public static string UserFristName = "Kullanıcı Adı Girilmelidir";
+        public static string UserLastName = "Kullanıcı Soyadı Girlmelidir";
+        public static string UserEmail = "Kullanıcı Email Gecersizdir";
+
+
 
         // RENTAL
         public static string RentalAdded = "Araba Kiralama Bilgisi Eklendi.";
         public static string RentalUpdate = "Araba Kiralama Bilgisi Güncellendi";
         public static string RentalDelete = "Araba Kiralama Bilgisi Silindi";
         public static string RentalsListed = "Araba kiralama Bilgiler Listelendi";
+        public static string RentalsRentDate = "Araba Kiralama Tarihi Girilmelidir";
 
         // SYSTEM
         public static string MaintenanceTime = "Sistem Bakımda";

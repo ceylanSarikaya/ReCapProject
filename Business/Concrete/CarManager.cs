@@ -7,6 +7,8 @@ using System.Collections.Generic;
 using System.Text;
 using Core.Utilities.Results;
 using Business.Constants;
+using Core.CrossCuttingConcerns.Validation;
+using Business.ValidationRules.FluentValidation;
 
 namespace Business.Concrete
 {
@@ -21,10 +23,7 @@ namespace Business.Concrete
 
         public IResult Add(Car car)
         {
-            if (car.DailyPrice==0)
-            {
-                return new ErrorResult(Messages.CarNameInvalid);
-            }
+            ValidationTool.Validate(new CarValidator(), car);
             _carDal.Add(car);
 
             return new SuccessResult(Messages.CarAdded);
