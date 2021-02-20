@@ -15,17 +15,13 @@ namespace Business.ValidationRules.FluentValidation
             RuleFor(u => u.Password).MinimumLength(8).WithMessage(Messages.UserPassword);
             RuleFor(u => u.FirstName).NotEmpty().WithMessage(Messages.UserFristName);
             RuleFor(u => u.LastName).NotEmpty().WithMessage(Messages.UserLastName);
-            RuleFor(u => u.Email).Must(StartsWith).WithMessage(Messages.UserEmail);
+            RuleFor(u => u.Email).EmailAddress(). WithMessage(Messages.UserEmail);
         }
 
         private bool StartsWith(string arg)
         {
-            //foreach (var item in arg)
-            //{
-                
-            //}
             return arg.StartsWith("@");
-
+             
         }
     }
 }
