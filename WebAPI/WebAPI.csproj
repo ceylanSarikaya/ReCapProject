@@ -15,5 +15,9 @@
     <ProjectReference Include="..\Entitys\Entities.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="wwwroot\" />
+  </ItemGroup>
+
 
 </Project>

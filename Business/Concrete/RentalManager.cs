@@ -8,6 +8,7 @@ using DataAccess.Abstract;
 using Entities.Concrete;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 
 namespace Business.Concrete
@@ -24,8 +25,18 @@ namespace Business.Concrete
         [ValidationAspect(typeof(RentalValidator))]
         public IResult Add(Rental rental)
         {
-            _rentalDal.Add(rental);
-            return new SuccessResult(Messages.RentalAdded);
+            var result = _rentalDal.GetAll(r => r.CarId == rental.CarId && r.ReturnDate == null).Any();
+            if (result)
+            {
+                return new ErrorResult(Messages.RentalAdded);
+            }
+            else
+            {
+                _rentalDal.Add(rental);
+                return new SuccessResult(Messages.RentalAdded);
+            }
+
+          
         }
 
         public IResult Delete(Rental rental)

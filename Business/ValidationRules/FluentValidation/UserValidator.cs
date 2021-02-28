@@ -18,10 +18,5 @@ namespace Business.ValidationRules.FluentValidation
             RuleFor(u => u.Email).EmailAddress(). WithMessage(Messages.UserEmail);
         }
 
-        private bool StartsWith(string arg)
-        {
-            return arg.StartsWith("@");
-             
-        }
     }
 }
