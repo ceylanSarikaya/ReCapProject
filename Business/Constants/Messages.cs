@@ -1,6 +1,7 @@
 ﻿using Entities.Concrete;
 using System;
 using System.Collections.Generic;
+using System.Runtime.Serialization;
 using System.Text;
 
 namespace Business.Constants
@@ -45,6 +46,7 @@ namespace Business.Constants
         public static string UserFristName = "Kullanıcı Adı Girilmelidir";
         public static string UserLastName = "Kullanıcı Soyadı Girlmelidir";
         public static string UserEmail = "Kullanıcı Email Gecersizdir";
+        public static string AuthorizationDenied = "Yetkiniz Yok";
 
 
 
@@ -68,5 +70,7 @@ namespace Business.Constants
 
         // SYSTEM
         public static string MaintenanceTime = "Sistem Bakımda";
+
+        
     }
 }
