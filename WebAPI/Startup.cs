@@ -1,5 +1,7 @@
 using Business.Abstract;
 using Business.Concrete;
+using Core.DependencyResolvers;
+using Core.Extensions;
 using Core.Utilities.IoC;
 using Core.Utilities.Security.Encryption;
 using Core.Utilities.Security.JWT;
@@ -52,7 +54,10 @@ namespace WebAPI
                         IssuerSigningKey = SecurityKeyHelper.CreateSecurityKey(tokenOptions.SecurityKey)
                     };
                 });
-            ServiceTool.Create(services);
+            //istediðim kadar module eklemek istediðimde olur.
+            services.AddDependencyResolvers(new ICoreModule[]{
+                new CoreModule()
+            }); 
 
         }
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
