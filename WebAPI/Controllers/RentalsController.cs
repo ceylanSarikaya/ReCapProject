@@ -29,7 +29,16 @@ namespace WebAPI.Controllers
             }
             return BadRequest(result.Message);
         }
-
+        [HttpGet("getrentaldetaildtos")]
+        public IActionResult GetRentalDetailDtos()
+        {
+            var result = _rentalService.GetRentalDetailDtos();
+            if (result.Success)
+            {
+                return Ok(result);
+            }
+            return BadRequest(result);
+        }
         [HttpGet("getcarid")]
         public IActionResult GetCarId(int id)
         {
