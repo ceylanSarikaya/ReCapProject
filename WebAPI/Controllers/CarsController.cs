@@ -16,10 +16,11 @@ namespace WebAPI.Controllers
     public class CarsController : ControllerBase
     {
         ICarService _carService;
-
-        public CarsController(ICarService carService)
+        ICarImageService _carImageService;
+        public CarsController(ICarService carService ,ICarImageService carImageService)
         {
             _carService = carService;
+            _carImageService = carImageService;
         }
 
         [HttpGet("getall")]
@@ -36,7 +37,8 @@ namespace WebAPI.Controllers
         [HttpGet("getcardetaildtos")]
         public IActionResult GetCarDetailDtos()
         {
-            var result = _carService.GetCarDetailDtos();
+            var cardtoList = _carService.GetCarDetailDtos().Data;
+            var result = _carImageService.CarDtoImageList(cardtoList);
             if (result.Success)
             {
                 return Ok(result);
@@ -49,29 +51,41 @@ namespace WebAPI.Controllers
             var result = _carService.GetById(id);
             if (result.Success)
             {
-                return Ok(result.Data);
+                return Ok(result);
             }
-            return BadRequest(result.Message);
+            return BadRequest(result);
         }
-        [HttpGet("getbrandid")]
-        public IActionResult GetBrandId(int id)
+        [HttpGet("GetCarIdDto")]
+        public IActionResult GetCarIdDto(int carId)
         {
-            var result = _carService.GetBrandId(id);
+            var result = _carService.GetCarIdDto(carId);
             if (result.Success)
             {
-                return Ok(result.Data);
+                return Ok(result);
             }
-            return BadRequest(result.Message);
+            return BadRequest(result);
         }
-        [HttpGet("getcolorid")]
-        public IActionResult GetColorId(int id)
+        [HttpGet("GetCarsBrandIdDtos")]
+        public IActionResult GetCarsBrandIdDtos(int brandId)
         {
-            var result = _carService.GetColorId(id);
+            var cardtoList = _carService.GetCarsBrandIdDtos(brandId);
+            var result = _carImageService.CarDtoImageList(cardtoList.Data);
             if (result.Success)
             {
-                return Ok(result.Data);
+                return Ok(result);
             }
-            return BadRequest(result.Message);
+            return BadRequest(result);
+        }
+        [HttpGet("GetCarsColorIdDtos")]
+        public IActionResult GetCarsColorIdDtos(int colorId)
+        {
+            var cardtoList = _carService.GetCarsColorIdDtos(colorId);
+            var result = _carImageService.CarDtoImageList(cardtoList.Data);
+            if (result.Success)
+            {
+                return Ok(result);
+            }
+            return BadRequest(result);
         }
 
         [HttpPost("add")]
