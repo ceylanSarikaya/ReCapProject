@@ -66,11 +66,15 @@ namespace Business.Constants
         public static string IncorrectFileExtension = " Araba  resmi dosya uzantısı  yanlıştır";
         public static string[] ValidImageFileTypes = { ".JPG", ".JPEG", ".PNG", ".TIF", ".TIFF", ".GIF", ".BMP", ".ICO" };
 
-
+        //Card
+        public static string CardAdd = "Kart Eklendi.";
+        public static string CardUpdate = "Kart  Güncellendi";
+        public static string CardDeleted = "Kart Silindi.";
+        public static string CardListed = "Kart  Listelendi";
 
         // SYSTEM
         public static string MaintenanceTime = "Sistem Bakımda";
 
-        
+ 
     }
 }

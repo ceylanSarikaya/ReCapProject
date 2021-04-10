@@ -45,12 +45,12 @@ namespace Business.Concrete
 
         public IDataResult<List<CarDetailDto>> GetCarsBrandIdDtos(int brandId)
         {
-            return new SuccessDataResult<List<CarDetailDto>> (_carDal.GetCarsBrandIdDtos(brandId));
+            return new SuccessDataResult<List<CarDetailDto>> (_carDal.GetCarDetailDtos(c=>c.BrandId==brandId));
         }
 
         public IDataResult<List<CarDetailDto>> GetCarsColorIdDtos(int colorId)
         {
-            return new SuccessDataResult<List<CarDetailDto>> ( _carDal.GetCarsColorIdDtos(colorId));
+            return new SuccessDataResult<List<CarDetailDto>> ( _carDal.GetCarDetailDtos(c=>c.ColorId==colorId));
         }
 
         public IDataResult<List<Car>> GetByDailyPrice(decimal min, decimal max)
@@ -88,9 +88,14 @@ namespace Business.Concrete
             return null;
         }
 
-        public IDataResult<CarDetailDto> GetCarIdDto(int carId)
+        public IDataResult<List<CarDetailDto>> GetCarIdDto(int carId)
         {
-            return new SuccessDataResult<CarDetailDto>(_carDal.GetCarIdDto( carId));
+            return new SuccessDataResult <List<CarDetailDto>>(_carDal.GetCarDetailDtos( c=>c.CarId==carId));
+        }
+
+        public IDataResult<List<CarDetailDto>> GetCarsColorIdBrandIdDtos(int colorId, int brandId)
+        {
+            return new SuccessDataResult<List<CarDetailDto>>(_carDal.GetCarDetailDtos(c => c.ColorId==colorId && c.BrandId==brandId));
         }
     }
  

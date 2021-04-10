@@ -37,8 +37,8 @@ namespace WebAPI.Controllers
         [HttpGet("getcardetaildtos")]
         public IActionResult GetCarDetailDtos()
         {
-            var cardtoList = _carService.GetCarDetailDtos().Data;
-            var result = _carImageService.CarDtoImageList(cardtoList);
+            var result = _carService.GetCarDetailDtos();
+           // var result = _carImageService.CarDtoImageList(cardtoList.Data);
             if (result.Success)
             {
                 return Ok(result);
@@ -119,6 +119,18 @@ namespace WebAPI.Controllers
                 return Ok(result);
             }
             return BadRequest(result.Message);
+        }
+
+        [HttpGet("GetCarsColorIdBrandIdDtos")]
+        public IActionResult GetCarsColorIdBrandIdDtos(int colorId, int brandId)
+        {
+            var cardtoList = _carService.GetCarsColorIdBrandIdDtos(colorId,brandId).Data;
+            var result = _carImageService.CarDtoImageList(cardtoList);
+            if (result.Success)
+            {
+                return Ok(result);
+            }
+            return BadRequest(result);
         }
     }
 }

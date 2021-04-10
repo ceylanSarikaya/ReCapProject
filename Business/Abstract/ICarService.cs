@@ -11,6 +11,7 @@ namespace Business.Abstract
     {
       IDataResult  <List<CarDetailDto>> GetCarsBrandIdDtos(int brandId);
         IDataResult<List<CarDetailDto>> GetCarsColorIdDtos(int colorId);
+        IDataResult<List<CarDetailDto>> GetCarsColorIdBrandIdDtos(int colorId, int brandId);
         IDataResult<List<CarDetailDto>> GetCarDetailDtos();
         IDataResult<List<Car>> GetAll();
         IDataResult<Car> GetById(int id);
@@ -18,7 +19,7 @@ namespace Business.Abstract
         IResult Update(Car car);
         IResult Delete(Car car);
         IResult AddTransactionalTest(Car car);
-        IDataResult <CarDetailDto> GetCarIdDto(int carId);
+        IDataResult <List<CarDetailDto>> GetCarIdDto(int carId);
     }
 }
 
